@@ -23,10 +23,12 @@ export default function Post() {
 
   if (!post) return <NotFound />;
 
-  const faqForSchema = post.sections.map((s) => ({
-    q: s.heading,
-    a: s.paragraphs.join(" "),
-  }));
+  // Pillar articles carry an explicit FAQ block; the shorter ones expose their
+  // question-shaped headings instead, so both kinds emit FAQPage schema.
+  const faqForSchema =
+    post.faq && post.faq.length > 0
+      ? post.faq
+      : post.sections.map((s) => ({ q: s.heading, a: s.paragraphs.join(" ") }));
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -93,6 +95,39 @@ export default function Post() {
             </div>
           </header>
 
+          {post.stats && post.stats.length > 0 && (
+            <div className="pt-12 md:pt-16 bg-white">
+              <div className="container max-w-3xl mx-auto">
+                <Reveal scale>
+                  <section aria-label="Dados sobre o tema">
+                    <h2 className="text-xl font-bold text-brand-navy mb-5">
+                      O tema em números
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {post.stats.map((stat) => (
+                        <div
+                          key={stat.label}
+                          className="rounded-2xl border border-border bg-brand-sky p-5"
+                        >
+                          <p
+                            className="text-3xl font-bold leading-none mb-2"
+                            style={{ color: post.tint }}
+                          >
+                            {stat.value}
+                          </p>
+                          <p className="text-foreground leading-snug mb-2">{stat.label}</p>
+                          <p className="text-xs text-muted-foreground leading-snug">
+                            Fonte: {stat.source}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                </Reveal>
+              </div>
+            </div>
+          )}
+
           <div className="py-16 md:py-20 bg-white">
             <div className="container max-w-3xl mx-auto space-y-12">
               {post.sections.map((section, index) => (
@@ -126,6 +161,50 @@ export default function Post() {
                   </section>
                 </Reveal>
               ))}
+
+              {post.faq && post.faq.length > 0 && (
+                <Reveal>
+                  <section>
+                    <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-6 leading-snug">
+                      Perguntas frequentes
+                    </h2>
+                    <dl className="space-y-5">
+                      {post.faq.map((item) => (
+                        <div
+                          key={item.q}
+                          className="rounded-2xl border border-border bg-brand-sky p-6"
+                        >
+                          <dt className="font-bold text-brand-navy leading-snug mb-2">
+                            {item.q}
+                          </dt>
+                          <dd className="text-foreground leading-relaxed">{item.a}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </section>
+                </Reveal>
+              )}
+
+              {post.references && post.references.length > 0 && (
+                <Reveal>
+                  <section>
+                    <h2 className="text-2xl md:text-3xl font-bold text-brand-navy mb-4 leading-snug">
+                      Referências
+                    </h2>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                      Este conteúdo tem caráter informativo e não substitui avaliação
+                      profissional individualizada.
+                    </p>
+                    <ol className="space-y-3 list-decimal pl-5">
+                      {post.references.map((ref) => (
+                        <li key={ref.title} className="text-sm text-muted-foreground leading-relaxed">
+                          {ref.source}. <cite className="not-italic font-medium text-foreground">{ref.title}</cite>. {ref.publication}, {ref.year}.
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                </Reveal>
+              )}
             </div>
           </div>
 

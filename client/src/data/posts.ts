@@ -5,6 +5,15 @@ import { extraPosts2 } from "@/data/posts-extra2";
 import { extraPosts3 } from "@/data/posts-extra3";
 import { extraPosts4 } from "@/data/posts-extra4";
 import { extraRelated } from "@/data/posts-extra-related";
+import { pilaresAutismo1 } from "@/data/pilares/autismo-1";
+import { pilaresAutismo2 } from "@/data/pilares/autismo-2";
+import { pilaresTdah1 } from "@/data/pilares/tdah-1";
+import { pilaresTerapias1 } from "@/data/pilares/terapias-1";
+import { pilaresLinguagem1 } from "@/data/pilares/linguagem-1";
+import { pilaresAutismo3 } from "@/data/pilares/autismo-3";
+import { pilaresTdah2 } from "@/data/pilares/tdah-2";
+import { pilaresRelated } from "@/data/pilares/related";
+import { referenciasPorSlug, dadosPorSlug } from "@/data/pilares/dados";
 
 export type { PostSection, PostLink, BlogPost, RawPost } from "@/data/postTypes";
 export { BLUE, TEAL, ORANGE, NAVY } from "@/data/postTypes";
@@ -1153,12 +1162,27 @@ const allRawPosts: RawPost[] = [
   ...extraPosts2,
   ...extraPosts3,
   ...extraPosts4,
+  ...pilaresAutismo1,
+  ...pilaresAutismo2,
+  ...pilaresTdah1,
+  ...pilaresTerapias1,
+  ...pilaresLinguagem1,
+  ...pilaresAutismo3,
+  ...pilaresTdah2,
 ];
 
-const allRelated: Record<string, string[]> = { ...relatedMap, ...extraRelated };
+const allRelated: Record<string, string[]> = {
+  ...relatedMap,
+  ...extraRelated,
+  ...pilaresRelated,
+};
 
 export const posts: BlogPost[] = allRawPosts.map((post) => ({
   ...post,
+  // Articles written before the pillar format get their figures and sources
+  // attached here rather than inline, so the data lives in one auditable place.
+  stats: post.stats ?? dadosPorSlug[post.slug],
+  references: post.references ?? referenciasPorSlug[post.slug],
   related: (allRelated[post.slug] ?? []).map((path) => {
     if (conditionLabels[path]) return { label: conditionLabels[path], path };
     const sibling = allRawPosts.find((p) => `/blog/${p.slug}` === path);

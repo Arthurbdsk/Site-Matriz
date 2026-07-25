@@ -15,7 +15,7 @@
 
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
-import { existsSync, statSync, readFileSync } from "node:fs";
+import { existsSync, statSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -53,12 +53,17 @@ function slugsFrom(relPath) {
 }
 
 // Posts live in posts.ts plus the posts-extra*.ts batches it merges in.
+// Discovered rather than listed, so adding a new batch of articles never
+// requires editing this script.
+const DATA_DIR = "client/src/data";
 const POST_FILES = [
-  "client/src/data/posts.ts",
-  "client/src/data/posts-extra1.ts",
-  "client/src/data/posts-extra2.ts",
-  "client/src/data/posts-extra3.ts",
-  "client/src/data/posts-extra4.ts",
+  path.join(DATA_DIR, "posts.ts"),
+  ...readdirSync(path.join(ROOT, DATA_DIR))
+    .filter((f) => f.startsWith("posts-extra") && f.endsWith(".ts"))
+    .map((f) => path.join(DATA_DIR, f)),
+  ...readdirSync(path.join(ROOT, DATA_DIR, "pilares"))
+    .filter((f) => f.endsWith(".ts") && f !== "related.ts" && f !== "referencias.ts")
+    .map((f) => path.join(DATA_DIR, "pilares", f)),
 ];
 
 const ROUTES = [

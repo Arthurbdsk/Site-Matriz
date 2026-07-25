@@ -11,6 +11,37 @@ export interface PostLink {
   path: string;
 }
 
+/** Explicit FAQ block rendered at the end of in-depth articles. */
+export interface PostFaq {
+  q: string;
+  a: string;
+}
+
+/**
+ * A single figure shown in the "em números" block. Every stat carries its own
+ * source inline, because an unattributed number on a health site is worse than
+ * no number at all.
+ */
+export interface PostStat {
+  value: string;
+  label: string;
+  source: string;
+}
+
+/**
+ * Scientific reference. Institutional sources (DSM-5-TR, CID-11, Ministério da
+ * Saúde, CDC, AAP) are preferred over individual papers so the list stays
+ * verifiable and stable over time.
+ */
+export interface PostReference {
+  /** Author or issuing institution. */
+  source: string;
+  title: string;
+  /** Journal, publisher or institutional body. */
+  publication: string;
+  year: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;
@@ -22,7 +53,13 @@ export interface BlogPost {
   readingMinutes: number;
   date: string;
   intro: string[];
+  /** Key figures shown right after the intro. */
+  stats?: PostStat[];
   sections: PostSection[];
+  /** Present on the in-depth pillar articles; drives the FAQPage schema. */
+  faq?: PostFaq[];
+  /** Present on the in-depth pillar articles. */
+  references?: PostReference[];
   /** Filled in by posts.ts: cross-links to condition pages and sibling posts. */
   related: PostLink[];
 }
