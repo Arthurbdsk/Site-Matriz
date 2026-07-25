@@ -33,7 +33,7 @@ const paths = [
   {
     icon: HeartPulse,
     bg: "linear-gradient(150deg, #10b981, #059669)",
-    title: "Terapias Integrativas e Acolhimento",
+    title: "Terapias Integradas e Acolhimento",
     description:
       "Cuidado completo e multidisciplinar para a saúde da mente e do corpo. Neuropsicologia, fonoaudiologia, terapia ocupacional e muito mais.",
     button: "Quero me Cuidar",

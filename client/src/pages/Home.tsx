@@ -12,16 +12,22 @@ import NossoEspacoSection from "@/components/NossoEspacoSection";
 import ServicesSection from "@/components/ServicesSection";
 import AudienceSection from "@/components/AudienceSection";
 import AulasSection from "@/components/AulasSection";
-import FaqSection from "@/components/FaqSection";
+import FaqSection, { faqs } from "@/components/FaqSection";
 import CtaBand from "@/components/CtaBand";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import AccessibilityWidget from "@/components/AccessibilityWidget";
+import Seo from "@/components/Seo";
 import { MessageCircle } from "lucide-react";
 import { openWhatsapp } from "@/data/site";
 import { scrollToSection } from "@/lib/scroll";
 import { PENDING_SCROLL_KEY } from "@/hooks/useSectionNav";
+import {
+  medicalClinicSchema,
+  organizationSchema,
+  buildFaqSchema,
+} from "@/data/schema";
 
 export default function Home() {
   const [ready, setReady] = useState(false);
@@ -46,6 +52,13 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title="Instituto Matriz de Neurodesenvolvimento | Barueri, SP"
+        description="Centro especializado em saúde, educação e neurodesenvolvimento infantil em Barueri, SP. Avaliação neuropsicológica, psicologia, fonoaudiologia, terapia ocupacional e integração sensorial para TEA, TDAH, TOD e transtornos de aprendizagem. Mais de 20 anos de experiência."
+        path="/"
+        image="https://www.institutomatriz.com.br/images/logo.png"
+        jsonLd={[medicalClinicSchema, organizationSchema, buildFaqSchema(faqs)]}
+      />
       <Preloader onReveal={() => setReady(true)} />
 
       <div

@@ -138,7 +138,7 @@ export default function AprovadosCarousel() {
                               {acc.university}
                             </span>
                             {multiple && (
-                              <span className="text-muted-foreground"> — {acc.course}</span>
+                              <span className="text-muted-foreground">: {acc.course}</span>
                             )}
                           </span>
                         </li>

@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 import { openWhatsapp } from "@/data/site";
 import { useState } from "react";
 
-const faqs = [
+export const faqs = [
   {
     q: "Quais faixas etárias o Instituto atende?",
     a: "Atendemos crianças, adolescentes e adultos. Cada plano é individualizado conforme a fase de desenvolvimento, o contexto e os objetivos da pessoa.",

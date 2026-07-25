@@ -26,7 +26,7 @@ const services = [
   {
     icon: Stethoscope,
     bg: "linear-gradient(150deg, #10b981, #059669)",
-    title: "Terapias Integrativas",
+    title: "Terapias Integradas",
     items: [
       "Fonoaudiologia",
       "Terapia Ocupacional (Integração Sensorial)",

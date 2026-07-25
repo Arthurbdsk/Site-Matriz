@@ -1,18 +1,12 @@
-import { Instagram, Mail, Phone, MapPin, MessageCircle, Heart } from "lucide-react";
+import { Instagram, Mail, Phone, MapPin, MessageCircle, Sparkles, Clock } from "lucide-react";
 import { Link } from "wouter";
 import { navItems, site, openWhatsapp } from "@/data/site";
 import Reveal from "@/components/Reveal";
 import AppLogo from "@/components/AppLogo";
 import { openCookiePreferences } from "@/lib/analytics";
 import { useSectionNav } from "@/hooks/useSectionNav";
-
-const services = [
-  "Neuropsicologia e Psicologia",
-  "Fonoaudiologia",
-  "Terapia Ocupacional e Fisioterapia",
-  "Terapias Integradas",
-  "Educação e Aprendizagem",
-];
+import { conditions } from "@/data/conditions";
+import { posts } from "@/data/posts";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -27,7 +21,7 @@ export default function Footer() {
       <div className="container relative">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <Reveal>
-            <div className="mb-4 w-fit transition-transform duration-300 hover:-translate-y-0.5">
+            <div className="mb-4 transition-transform duration-300 hover:-translate-y-0.5">
               <AppLogo size={48} variant="light" />
             </div>
             <p className="text-white/70 text-sm leading-relaxed">
@@ -52,22 +46,16 @@ export default function Footer() {
                   {item.href ? (
                     <Link
                       href={item.href}
-                      className="group inline-flex items-center gap-1.5 hover:text-white transition-colors"
+                      className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-white"
                     >
-                      <span className="h-1 w-1 rounded-full bg-[var(--brand-teal)] scale-0 transition-transform duration-200 group-hover:scale-100" />
-                      <span className="transition-transform duration-200 group-hover:translate-x-1">
-                        {item.label}
-                      </span>
+                      {item.label}
                     </Link>
                   ) : (
                     <button
                       onClick={() => scrollTo(item.id!)}
-                      className="group inline-flex items-center gap-1.5 hover:text-white transition-colors"
+                      className="inline-block transition-all duration-200 hover:translate-x-1 hover:text-white"
                     >
-                      <span className="h-1 w-1 rounded-full bg-[var(--brand-teal)] scale-0 transition-transform duration-200 group-hover:scale-100" />
-                      <span className="transition-transform duration-200 group-hover:translate-x-1">
-                        {item.label}
-                      </span>
+                      {item.label}
                     </button>
                   )}
                 </li>
@@ -76,14 +64,16 @@ export default function Footer() {
           </Reveal>
 
           <Reveal delay={0.12}>
-            <h4 className="font-bold mb-4">Serviços</h4>
-            <ul className="space-y-2 text-sm text-white/70">
-              {services.map((service) => (
-                <li
-                  key={service}
-                  className="transition-transform duration-200 hover:translate-x-1 hover:text-white/90"
-                >
-                  {service}
+            <h4 className="font-bold mb-4">Áreas de Atuação</h4>
+            <ul className="space-y-2 text-sm">
+              {conditions.map((condition) => (
+                <li key={condition.slug}>
+                  <Link
+                    href={condition.path}
+                    className="inline-block text-white/70 transition-all duration-200 hover:translate-x-1 hover:text-white"
+                  >
+                    {condition.navLabel}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -104,6 +94,16 @@ export default function Footer() {
                 <MapPin size={16} className="mt-0.5 shrink-0 transition-transform duration-300 group-hover:scale-125" />
                 <span>
                   {site.address.line1}, {site.address.line2}
+                  <br />
+                  {site.address.cep}
+                </span>
+              </div>
+              <div className="group flex items-start gap-2 transition-transform duration-200 hover:translate-x-1">
+                <Clock size={16} className="mt-0.5 shrink-0 transition-transform duration-300 group-hover:scale-125" />
+                <span>
+                  {site.hours.weekdays}
+                  <br />
+                  {site.hours.saturday}
                 </span>
               </div>
               <div className="flex items-center gap-3 pt-2">
@@ -120,6 +120,35 @@ export default function Footer() {
             </div>
           </Reveal>
         </div>
+
+        <Reveal delay={0.22}>
+          <div className="border-t border-white/15 pt-8 pb-8 mb-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-3 mb-5">
+              <h4 className="font-bold">Do nosso blog</h4>
+              <Link
+                href="/blog"
+                className="group inline-flex items-center gap-1.5 text-sm text-white/70 hover:text-white transition-colors"
+              >
+                Ver todos os artigos
+                <span className="transition-transform duration-200 group-hover:translate-x-1">
+                  →
+                </span>
+              </Link>
+            </div>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 text-sm">
+              {posts.slice(0, 6).map((post) => (
+                <li key={post.slug}>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="inline-block text-white/70 transition-all duration-200 hover:translate-x-1 hover:text-white"
+                  >
+                    {post.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Reveal>
 
         <Reveal delay={0.24}>
           <div className="border-t border-white/15 pt-8">
@@ -151,12 +180,11 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
               >
-                <span>Feito com</span>
-                <Heart
+                <span>Desenvolvido por</span>
+                <Sparkles
                   size={14}
-                  className="text-[var(--brand-orange)] fill-[var(--brand-orange)] transition-transform duration-300 group-hover:scale-125"
+                  className="text-[var(--brand-orange)] transition-transform duration-300 group-hover:scale-125 group-hover:rotate-12"
                 />
-                <span>por</span>
                 <span className="font-semibold text-white/80 group-hover:text-white inline-flex items-center gap-1">
                   <Instagram size={14} className="transition-transform duration-300 group-hover:rotate-6" />
                   Socialy
