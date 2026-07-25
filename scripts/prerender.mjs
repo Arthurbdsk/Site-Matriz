@@ -18,7 +18,27 @@ import { readFile } from "node:fs/promises";
 import { existsSync, statSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import puppeteer from "puppeteer";
+
+// Locally we use the full `puppeteer` package with its bundled Chromium.
+// On Vercel that binary can't start (the build image lacks libnspr4 and other
+// shared libraries Chrome needs), so there we use puppeteer-core driving
+// @sparticuz/chromium, which ships a Chromium built for exactly that
+// environment.
+async function launchBrowser() {
+  if (process.env.VERCEL) {
+    const [{ default: chromium }, { default: puppeteerCore }] = await Promise.all([
+      import("@sparticuz/chromium"),
+      import("puppeteer-core"),
+    ]);
+    return puppeteerCore.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+  }
+  const { default: puppeteer } = await import("puppeteer");
+  return puppeteer.launch({ headless: true });
+}
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -123,7 +143,7 @@ async function main() {
   }
 
   const server = await startStaticServer();
-  const browser = await puppeteer.launch({ headless: true });
+  const browser = await launchBrowser();
 
   console.log(`Prerendering ${ROUTES.length} route(s)...`);
   const results = [];
