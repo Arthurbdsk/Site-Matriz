@@ -4,7 +4,7 @@ const messages = [
   { icon: ShieldCheck, text: "Mais de 20 anos de experiência clínica e pedagógica" },
   { icon: Sparkles, text: "Mais de 1.000 famílias acompanhadas" },
   { icon: MapPin, text: "Barueri, São Paulo" },
-  { icon: Clock, text: "Segunda a sexta, 8h às 19h" },
+  { icon: Clock, text: "Segunda a sexta, 7h às 21h" },
   { icon: ShieldCheck, text: "Abordagem baseada em evidências científicas" },
 ];
 

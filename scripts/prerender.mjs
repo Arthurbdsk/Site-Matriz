@@ -117,13 +117,8 @@ async function prerenderRoute(browser, route) {
   const page = await browser.newPage();
   await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: "networkidle0" });
 
-  // Wait for real page content to mount, then for the preloader overlay
-  // (fixed, z-[100]) to fully unmount — otherwise its "NN%" progress text
-  // ends up duplicated in the snapshot alongside the real content.
+  // Wait for the real page content to mount before snapshotting.
   await page.waitForSelector("#main-content", { timeout: 15000 }).catch(() => {});
-  await page
-    .waitForFunction(() => !document.querySelector('.z-\\[100\\]'), { timeout: 6000 })
-    .catch(() => {});
   // Small settle delay for any staggered entrance animations to finish
   // mounting their final DOM (content itself doesn't depend on animation
   // state, but this avoids racing the very first paint).
