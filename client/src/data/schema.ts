@@ -33,14 +33,14 @@ export const medicalClinicSchema = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "07:00",
-      closes: "21:00",
+      opens: "06:00",
+      closes: "22:00",
     },
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Saturday"],
-      opens: "08:00",
-      closes: "15:00",
+      opens: "07:00",
+      closes: "17:00",
     },
   ],
   medicalSpecialty: [
