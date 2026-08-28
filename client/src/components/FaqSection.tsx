@@ -27,7 +27,11 @@ export const faqs = [
   },
   {
     q: "Onde fica o Instituto Matriz?",
-    a: "Estamos na Alameda Madeira, 222, Conjunto 92, em Barueri, São Paulo. O atendimento é de segunda a sexta das 7h às 21h e aos sábados das 8h às 15h.",
+    a: "Estamos na Alameda Madeira, 222, Conjunto 92, no bairro Alphaville, em Barueri, São Paulo. O atendimento é de segunda a sexta das 7h às 21h e aos sábados das 8h às 15h.",
+  },
+  {
+    q: "Vocês atendem famílias de Alphaville?",
+    a: "Sim. Estamos localizados no próprio bairro Alphaville, em Barueri, e atendemos famílias de Alphaville e de toda a região.",
   },
 ];
 

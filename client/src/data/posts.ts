@@ -13,6 +13,7 @@ import { pilaresLinguagem1 } from "@/data/pilares/linguagem-1";
 import { pilaresAutismo3 } from "@/data/pilares/autismo-3";
 import { pilaresTdah2 } from "@/data/pilares/tdah-2";
 import { pilaresRelated } from "@/data/pilares/related";
+import { localPosts } from "@/data/posts-local";
 import { referenciasPorSlug, dadosPorSlug } from "@/data/pilares/dados";
 
 export type { PostSection, PostLink, BlogPost, RawPost } from "@/data/postTypes";
@@ -1027,6 +1028,7 @@ const relatedMap: Record<string, string[]> = {
     "/blog/10-sinais-de-autismo-que-passam-despercebidos",
     "/blog/mitos-sobre-autismo",
     "/condicoes/avaliacao-neuropsicologica",
+    "/blog/clinica-de-autismo-em-barueri-e-alphaville",
   ],
   "10-sinais-de-autismo-que-passam-despercebidos": [
     "/condicoes/autismo",
@@ -1169,12 +1171,23 @@ const allRawPosts: RawPost[] = [
   ...pilaresLinguagem1,
   ...pilaresAutismo3,
   ...pilaresTdah2,
+  ...localPosts,
 ];
+
+const localRelated: Record<string, string[]> = {
+  "clinica-de-autismo-em-barueri-e-alphaville": [
+    "/condicoes/autismo",
+    "/blog/o-que-e-autismo",
+    "/blog/primeiros-sinais-de-autismo",
+    "/condicoes/avaliacao-neuropsicologica",
+  ],
+};
 
 const allRelated: Record<string, string[]> = {
   ...relatedMap,
   ...extraRelated,
   ...pilaresRelated,
+  ...localRelated,
 };
 
 export const posts: BlogPost[] = allRawPosts.map((post) => ({

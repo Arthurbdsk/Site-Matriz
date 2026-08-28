@@ -59,7 +59,7 @@ export default function HeroSection() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-4 py-1.5 text-sm font-medium text-brand-navy shadow-sm hover-lift">
               <span className="relative w-2 h-2 rounded-full bg-[var(--brand-teal)] pulse-ring" />
-              Clínica Multidisciplinar
+              Clínica Multidisciplinar em Barueri e Alphaville
             </span>
           </Reveal>
 

@@ -49,8 +49,8 @@ export default function Home() {
   return (
     <>
       <Seo
-        title="Instituto Matriz de Neurodesenvolvimento | Barueri, SP"
-        description="Centro especializado em saúde, educação e neurodesenvolvimento infantil em Barueri, SP. Avaliação neuropsicológica, psicologia, fonoaudiologia, terapia ocupacional e integração sensorial para TEA, TDAH, TOD e transtornos de aprendizagem. Mais de 20 anos de experiência."
+        title="Clínica de Autismo e TDAH em Barueri e Alphaville | Instituto Matriz"
+        description="Clínica multidisciplinar em Barueri (bairro Alphaville), SP, especializada em autismo (TEA), TDAH, TOD e neurodesenvolvimento infantil. Avaliação, diagnóstico e terapias com mais de 20 anos de experiência e mais de 1.000 famílias acompanhadas."
         path="/"
         image="https://www.institutomatriz.com.br/images/logo.png"
         jsonLd={[medicalClinicSchema, organizationSchema, buildFaqSchema(faqs)]}

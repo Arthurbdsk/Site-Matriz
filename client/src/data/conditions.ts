@@ -25,9 +25,10 @@ export const conditions: ConditionData[] = [
     tint: "#1d4ed8",
     eyebrow: "Transtorno do Espectro Autista",
     title: "Autismo (TEA)",
-    metaTitle: "Autismo (TEA): sinais, diagnóstico e tratamento | Instituto Matriz",
+    metaTitle:
+      "Autismo (TEA): sinais, diagnóstico e tratamento | Instituto Matriz",
     metaDescription:
-      "Entenda o que é o Transtorno do Espectro Autista, como é feito o diagnóstico e quais intervenções ajudam a criança a se desenvolver. Atendimento em Barueri, SP.",
+      "Entenda o que é o Transtorno do Espectro Autista, como é feito o diagnóstico e quais intervenções ajudam a criança a se desenvolver. Atendimento em Barueri e Alphaville, SP.",
     path: "/condicoes/autismo",
     intro: [
       "O Transtorno do Espectro Autista (TEA) é uma condição do neurodesenvolvimento que afeta a comunicação social e o comportamento, com características que variam muito de uma criança para outra.",
@@ -82,7 +83,28 @@ export const conditions: ConditionData[] = [
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Como reconhecer sinais de autismo no seu filho",
+        path: "/blog/como-reconhecer-sinais-de-autismo",
+      },
+      {
+        label: "10 sinais de autismo que passam despercebidos",
+        path: "/blog/10-sinais-de-autismo-que-passam-despercebidos",
+      },
+      {
+        label: "Como montar uma rotina visual em casa",
+        path: "/blog/como-montar-rotina-visual-em-casa",
+      },
+      {
+        label: "Como contar o diagnóstico para o seu filho",
+        path: "/blog/como-contar-o-diagnostico-para-a-crianca",
+      },
+      {
+        label: "Como escolher uma clínica de autismo em Barueri e Alphaville",
+        path: "/blog/clinica-de-autismo-em-barueri-e-alphaville",
+      },
+    ],
   },
   {
     slug: "tdah",
@@ -91,9 +113,10 @@ export const conditions: ConditionData[] = [
     tint: "#f97316",
     eyebrow: "Transtorno de Déficit de Atenção e Hiperatividade",
     title: "TDAH",
-    metaTitle: "TDAH: sintomas, diagnóstico e tratamento infantil | Instituto Matriz",
+    metaTitle:
+      "TDAH: sintomas, diagnóstico e tratamento infantil | Instituto Matriz",
     metaDescription:
-      "Saiba como identificar o Transtorno de Déficit de Atenção e Hiperatividade em crianças, como funciona o diagnóstico e quais tratamentos existem. Barueri, SP.",
+      "Saiba como identificar o Transtorno de Déficit de Atenção e Hiperatividade em crianças, como funciona o diagnóstico e quais tratamentos existem. Barueri e Alphaville, SP.",
     path: "/condicoes/tdah",
     intro: [
       "O Transtorno de Déficit de Atenção e Hiperatividade (TDAH) é uma condição neurobiológica que afeta a capacidade de manter atenção, controlar impulsos e regular o nível de atividade.",
@@ -147,7 +170,24 @@ export const conditions: ConditionData[] = [
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Meu filho é distraído ou tem TDAH?",
+        path: "/blog/meu-filho-e-distraido-ou-tem-tdah",
+      },
+      {
+        label: "Como montar uma rotina visual em casa",
+        path: "/blog/como-montar-rotina-visual-em-casa",
+      },
+      {
+        label: "Direitos do seu filho na escola: o que a lei garante",
+        path: "/blog/direitos-do-seu-filho-na-escola",
+      },
+      {
+        label: "Como ajudar uma criança com TDAH na lição de casa",
+        path: "/blog/licao-de-casa-com-tdah",
+      },
+    ],
   },
   {
     slug: "tod",
@@ -156,9 +196,10 @@ export const conditions: ConditionData[] = [
     tint: "#f97316",
     eyebrow: "Transtorno Opositor Desafiador",
     title: "TOD",
-    metaTitle: "TOD (Transtorno Opositor Desafiador): sinais e tratamento | Instituto Matriz",
+    metaTitle:
+      "TOD (Transtorno Opositor Desafiador): sinais e tratamento | Instituto Matriz",
     metaDescription:
-      "Entenda o Transtorno Opositor Desafiador, como diferenciá-lo de birras comuns da infância e quais intervenções ajudam a criança e a família. Barueri, SP.",
+      "Entenda o Transtorno Opositor Desafiador, como diferenciá-lo de birras comuns da infância e quais intervenções ajudam a criança e a família. Barueri e Alphaville, SP.",
     path: "/condicoes/tod",
     intro: [
       "O Transtorno Opositor Desafiador (TOD) é caracterizado por um padrão persistente de humor irritável, comportamento argumentativo e desafiador, e atitude vingativa, que vai além das birras esperadas para a idade da criança.",
@@ -205,7 +246,24 @@ export const conditions: ConditionData[] = [
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Como ajudar seu filho com a regulação emocional",
+        path: "/blog/regulacao-emocional-em-criancas",
+      },
+      {
+        label: "TOD ou falta de limites? Como diferenciar",
+        path: "/blog/tod-ou-falta-de-limite",
+      },
+      {
+        label: "Como dar limites sem gritar",
+        path: "/blog/como-dar-limites-sem-gritar",
+      },
+      {
+        label: "TOD: sintomas e tratamento do Transtorno Opositor Desafiador",
+        path: "/blog/o-que-e-tod-sintomas-e-tratamento",
+      },
+    ],
   },
   {
     slug: "atraso-de-fala",
@@ -214,9 +272,10 @@ export const conditions: ConditionData[] = [
     tint: "#0ea5a4",
     eyebrow: "Desenvolvimento da linguagem",
     title: "Atraso de Fala",
-    metaTitle: "Atraso de fala infantil: quando se preocupar | Instituto Matriz",
+    metaTitle:
+      "Atraso de fala infantil: quando se preocupar | Instituto Matriz",
     metaDescription:
-      "Entenda os marcos esperados da fala infantil, sinais de atraso de linguagem e como a fonoaudiologia pode ajudar. Atendimento em Barueri, SP.",
+      "Entenda os marcos esperados da fala infantil, sinais de atraso de linguagem e como a fonoaudiologia pode ajudar. Atendimento em Barueri e Alphaville, SP.",
     path: "/condicoes/atraso-de-fala",
     intro: [
       "O desenvolvimento da fala e da linguagem segue marcos esperados por idade, mas o ritmo varia entre crianças. O atraso de fala se refere a quando a criança não atinge esses marcos dentro do período típico.",
@@ -256,14 +315,32 @@ export const conditions: ConditionData[] = [
         ],
       },
       {
-        question: "Preciso esperar a criança completar 3 anos para procurar ajuda?",
+        question:
+          "Preciso esperar a criança completar 3 anos para procurar ajuda?",
         answer: [
           "Não, e essa é uma das ideias equivocadas mais comuns sobre desenvolvimento infantil.",
           "Quanto mais cedo a intervenção fonoaudiológica começa, mais rápida e eficaz costuma ser a evolução, justamente porque o cérebro da criança pequena tem maior plasticidade para aprendizado de linguagem. Se há dúvida sobre o desenvolvimento da fala antes dos 3 anos, a avaliação já pode e deve ser feita.",
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Atraso de fala: quando se preocupar de verdade",
+        path: "/blog/atraso-de-fala-quando-se-preocupar",
+      },
+      {
+        label: "Brincadeiras que estimulam a linguagem",
+        path: "/blog/brincadeiras-que-estimulam-a-linguagem",
+      },
+      {
+        label: "O que é comunicação alternativa e quando ela é indicada",
+        path: "/blog/comunicacao-alternativa-caa",
+      },
+      {
+        label: "Gagueira infantil: quando é fase e quando precisa de ajuda",
+        path: "/blog/gagueira-infantil",
+      },
+    ],
   },
   {
     slug: "terapia-ocupacional",
@@ -272,7 +349,8 @@ export const conditions: ConditionData[] = [
     tint: "#16267a",
     eyebrow: "Terapia Ocupacional",
     title: "Terapia Ocupacional",
-    metaTitle: "Terapia Ocupacional infantil: para que serve | Instituto Matriz",
+    metaTitle:
+      "Terapia Ocupacional infantil: para que serve | Instituto Matriz",
     metaDescription:
       "Entenda o que faz a terapia ocupacional infantil, quando ela é indicada e como ajuda no desenvolvimento motor, sensorial e da autonomia da criança.",
     path: "/condicoes/terapia-ocupacional",
@@ -293,7 +371,8 @@ export const conditions: ConditionData[] = [
     },
     qas: [
       {
-        question: "O que exatamente faz um terapeuta ocupacional com uma criança?",
+        question:
+          "O que exatamente faz um terapeuta ocupacional com uma criança?",
         answer: [
           "O terapeuta ocupacional avalia como a criança processa estímulos sensoriais, se movimenta e organiza suas ações, e usa atividades lúdicas estruturadas para desenvolver as habilidades que estão defasadas, sejam elas motoras, sensoriais ou de organização.",
           "As sessões costumam parecer brincadeiras, mas são cuidadosamente planejadas para trabalhar objetivos terapêuticos específicos, como melhorar a coordenação motora fina para a escrita, reduzir reações de defesa sensorial, ou aumentar a tolerância a novas texturas de alimentos.",
@@ -314,7 +393,24 @@ export const conditions: ConditionData[] = [
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Birra ou crise sensorial? Como diferenciar",
+        path: "/blog/birra-ou-crise-sensorial",
+      },
+      {
+        label: "Seletividade alimentar: quando não é frescura",
+        path: "/blog/seletividade-alimentar-infantil",
+      },
+      {
+        label: "Como preparar seu filho para a primeira terapia",
+        path: "/blog/preparar-a-crianca-para-a-primeira-terapia",
+      },
+      {
+        label: "Como adaptar a casa para sensibilidade sensorial",
+        path: "/blog/adaptar-a-casa-para-sensibilidade-sensorial",
+      },
+    ],
   },
   {
     slug: "psicologia",
@@ -323,7 +419,8 @@ export const conditions: ConditionData[] = [
     tint: "#1a56db",
     eyebrow: "Psicologia Infantil",
     title: "Psicologia Infantil",
-    metaTitle: "Psicologia infantil: quando levar a criança ao psicólogo | Instituto Matriz",
+    metaTitle:
+      "Psicologia infantil: quando levar a criança ao psicólogo | Instituto Matriz",
     metaDescription:
       "Entenda quando procurar acompanhamento psicológico para crianças, quais abordagens são usadas e como a psicoterapia infantil ajuda no desenvolvimento emocional.",
     path: "/condicoes/psicologia",
@@ -347,14 +444,32 @@ export const conditions: ConditionData[] = [
         ],
       },
       {
-        question: "Os pais participam do acompanhamento psicológico da criança?",
+        question:
+          "Os pais participam do acompanhamento psicológico da criança?",
         answer: [
           "Sim, o envolvimento da família é parte essencial do processo. Orientações parentais regulares ajudam os pais a entender o que está sendo trabalhado e a aplicar estratégias consistentes em casa.",
           "Em muitos casos, mudanças pequenas na forma como a família lida com determinadas situações fazem grande diferença nos resultados da terapia, e por isso o acompanhamento não se limita à criança isoladamente.",
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Como ajudar seu filho com a regulação emocional",
+        path: "/blog/regulacao-emocional-em-criancas",
+      },
+      {
+        label: "Como contar o diagnóstico para o seu filho",
+        path: "/blog/como-contar-o-diagnostico-para-a-crianca",
+      },
+      {
+        label: "Como preparar seu filho para a primeira terapia",
+        path: "/blog/preparar-a-crianca-para-a-primeira-terapia",
+      },
+      {
+        label: "Esgotamento parental: cuidar de você também é cuidar dele",
+        path: "/blog/esgotamento-parental",
+      },
+    ],
   },
   {
     slug: "fonoaudiologia",
@@ -363,7 +478,8 @@ export const conditions: ConditionData[] = [
     tint: "#059669",
     eyebrow: "Fonoaudiologia",
     title: "Fonoaudiologia",
-    metaTitle: "Fonoaudiologia infantil: linguagem, fala e comunicação | Instituto Matriz",
+    metaTitle:
+      "Fonoaudiologia infantil: linguagem, fala e comunicação | Instituto Matriz",
     metaDescription:
       "Entenda o que trata a fonoaudiologia infantil, quando procurar um fonoaudiólogo e como a terapia da fala ajuda no desenvolvimento da comunicação.",
     path: "/condicoes/fonoaudiologia",
@@ -394,7 +510,24 @@ export const conditions: ConditionData[] = [
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Seletividade alimentar: quando não é frescura",
+        path: "/blog/seletividade-alimentar-infantil",
+      },
+      {
+        label: "Atraso de fala: quando se preocupar de verdade",
+        path: "/blog/atraso-de-fala-quando-se-preocupar",
+      },
+      {
+        label: "Brincadeiras que estimulam a linguagem",
+        path: "/blog/brincadeiras-que-estimulam-a-linguagem",
+      },
+      {
+        label: "Meu filho repete falas de desenho: o que é ecolalia",
+        path: "/blog/ecolalia-infantil",
+      },
+    ],
   },
   {
     slug: "integracao-sensorial",
@@ -403,7 +536,8 @@ export const conditions: ConditionData[] = [
     tint: "#0ea5a4",
     eyebrow: "Processamento Sensorial",
     title: "Integração Sensorial",
-    metaTitle: "Integração sensorial infantil: o que é e como identificar | Instituto Matriz",
+    metaTitle:
+      "Integração sensorial infantil: o que é e como identificar | Instituto Matriz",
     metaDescription:
       "Entenda o que é o processamento sensorial, sinais de disfunção de integração sensorial em crianças e como a terapia ocupacional pode ajudar.",
     path: "/condicoes/integracao-sensorial",
@@ -445,7 +579,24 @@ export const conditions: ConditionData[] = [
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "10 sinais de autismo que passam despercebidos",
+        path: "/blog/10-sinais-de-autismo-que-passam-despercebidos",
+      },
+      {
+        label: "Birra ou crise sensorial? Como diferenciar",
+        path: "/blog/birra-ou-crise-sensorial",
+      },
+      {
+        label: "Seletividade alimentar: quando não é frescura",
+        path: "/blog/seletividade-alimentar-infantil",
+      },
+      {
+        label: "Como adaptar a casa para sensibilidade sensorial",
+        path: "/blog/adaptar-a-casa-para-sensibilidade-sensorial",
+      },
+    ],
   },
   {
     slug: "avaliacao-neuropsicologica",
@@ -454,7 +605,8 @@ export const conditions: ConditionData[] = [
     tint: "#16267a",
     eyebrow: "Avaliação Neuropsicológica",
     title: "Avaliação Neuropsicológica",
-    metaTitle: "Avaliação neuropsicológica infantil: para que serve | Instituto Matriz",
+    metaTitle:
+      "Avaliação neuropsicológica infantil: para que serve | Instituto Matriz",
     metaDescription:
       "Entenda o que é a avaliação neuropsicológica infantil, quando ela é indicada e como o resultado orienta o tratamento de TEA, TDAH e dificuldades de aprendizagem.",
     path: "/condicoes/avaliacao-neuropsicologica",
@@ -485,12 +637,34 @@ export const conditions: ConditionData[] = [
         ],
       },
     ],
-    related: [],
+    related: [
+      {
+        label: "Como reconhecer sinais de autismo no seu filho",
+        path: "/blog/como-reconhecer-sinais-de-autismo",
+      },
+      {
+        label: "Meu filho é distraído ou tem TDAH?",
+        path: "/blog/meu-filho-e-distraido-ou-tem-tdah",
+      },
+      {
+        label: "Direitos do seu filho na escola: o que a lei garante",
+        path: "/blog/direitos-do-seu-filho-na-escola",
+      },
+      {
+        label: "Quando vale a pena fazer avaliação neuropsicológica",
+        path: "/blog/quando-fazer-avaliacao-neuropsicologica",
+      },
+    ],
   },
 ];
 
 const relatedMap: Record<string, string[]> = {
-  autismo: ["fonoaudiologia", "terapia-ocupacional", "integracao-sensorial", "avaliacao-neuropsicologica"],
+  autismo: [
+    "fonoaudiologia",
+    "terapia-ocupacional",
+    "integracao-sensorial",
+    "avaliacao-neuropsicologica",
+  ],
   tdah: ["tod", "avaliacao-neuropsicologica", "psicologia"],
   tod: ["tdah", "psicologia"],
   "atraso-de-fala": ["fonoaudiologia", "autismo", "avaliacao-neuropsicologica"],
@@ -503,11 +677,11 @@ const relatedMap: Record<string, string[]> = {
 
 for (const item of conditions) {
   item.related = (relatedMap[item.slug] ?? [])
-    .map((slug) => conditions.find((c) => c.slug === slug))
+    .map(slug => conditions.find(c => c.slug === slug))
     .filter((c): c is ConditionData => Boolean(c))
-    .map((c) => ({ label: c.navLabel, path: c.path }));
+    .map(c => ({ label: c.navLabel, path: c.path }));
 }
 
 export function getConditionBySlug(slug: string) {
-  return conditions.find((c) => c.slug === slug);
+  return conditions.find(c => c.slug === slug);
 }

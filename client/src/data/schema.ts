@@ -12,6 +12,9 @@ export const medicalClinicSchema = {
   email: site.email,
   image: `${SITE_ORIGIN}/images/logo.png`,
   logo: `${SITE_ORIGIN}/images/logo.png`,
+  // Endereço postal (NAP) mantido idêntico ao usado no Google Business Profile
+  // e demais citações — não alterar sem atualizar essas fontes junto, ou a
+  // inconsistência de NAP prejudica o SEO local em vez de ajudar.
   address: {
     "@type": "PostalAddress",
     streetAddress: `${site.address.line1}, ${site.address.line2}`,
@@ -20,6 +23,12 @@ export const medicalClinicSchema = {
     postalCode: "06454-010",
     addressCountry: "BR",
   },
+  // CEP 06454-010 tem como bairro oficial dos Correios "Alphaville" — por
+  // isso ele entra como local adicional descrito, sem tocar no endereço NAP.
+  description:
+    "Clínica multidisciplinar de neurodesenvolvimento no bairro Alphaville, em Barueri, SP, especializada em avaliação, diagnóstico e tratamento de TEA, TDAH, TOD e demais condições do neurodesenvolvimento infantil.",
+  hasMap:
+    "https://www.google.com/maps/dir/?api=1&destination=Alameda+Madeira+222+Barueri+SP+06454-010",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -41,10 +50,10 @@ export const medicalClinicSchema = {
     "Terapia Ocupacional",
     "Neuropsicologia",
   ],
-  areaServed: {
-    "@type": "City",
-    name: "Barueri",
-  },
+  areaServed: [
+    { "@type": "City", name: "Barueri" },
+    { "@type": "Place", name: "Alphaville" },
+  ],
 };
 
 /** Organization schema (brand-level, independent of the clinic's physical address). */

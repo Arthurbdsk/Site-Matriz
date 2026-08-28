@@ -44,6 +44,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist", "public");
 const PORT = 4173;
+const SITE_ORIGIN = "https://www.institutomatriz.com.br";
 
 // Slugs are read straight from the data files so adding a post or a condition
 // page never requires touching this script.
@@ -58,8 +59,10 @@ function slugsFrom(relPath) {
 const DATA_DIR = "client/src/data";
 const POST_FILES = [
   path.join(DATA_DIR, "posts.ts"),
+  // Any posts-*.ts batch (posts-extra1.ts, posts-local.ts, ...) other than
+  // posts.ts itself, which is already listed above.
   ...readdirSync(path.join(ROOT, DATA_DIR))
-    .filter((f) => f.startsWith("posts-extra") && f.endsWith(".ts"))
+    .filter((f) => f.startsWith("posts-") && f.endsWith(".ts"))
     .map((f) => path.join(DATA_DIR, f)),
   ...readdirSync(path.join(ROOT, DATA_DIR, "pilares"))
     .filter((f) => f.endsWith(".ts") && f !== "related.ts" && f !== "referencias.ts")
@@ -136,6 +139,34 @@ async function prerenderRoute(browser, route) {
   return { route, bytes: html.length, outFile };
 }
 
+// Priority is a relative hint to crawlers, not a ranking factor by itself:
+// the home page and the condition pages are the commercial pages we most
+// want indexed and re-crawled, blog content is supporting material.
+function priorityFor(route) {
+  if (route === "/") return "1.0";
+  if (route.startsWith("/condicoes/")) return "0.8";
+  if (route === "/blog") return "0.6";
+  return "0.5";
+}
+
+async function writeSitemap() {
+  const today = new Date().toISOString().slice(0, 10);
+  const urls = ROUTES.map(
+    (route) =>
+      `  <url>\n` +
+      `    <loc>${SITE_ORIGIN}${route}</loc>\n` +
+      `    <lastmod>${today}</lastmod>\n` +
+      `    <priority>${priorityFor(route)}</priority>\n` +
+      `  </url>`,
+  ).join("\n");
+  const xml =
+    `<?xml version="1.0" encoding="UTF-8"?>\n` +
+    `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
+  const { writeFile } = await import("node:fs/promises");
+  await writeFile(path.join(DIST, "sitemap.xml"), xml, "utf-8");
+  console.log(`  ✓ sitemap.xml (${ROUTES.length} URLs)`);
+}
+
 async function main() {
   if (!existsSync(DIST)) {
     console.error(`dist/public not found at ${DIST} — run "vite build" first.`);
@@ -159,6 +190,8 @@ async function main() {
 
   await browser.close();
   server.close();
+
+  await writeSitemap();
 
   console.log(`\nDone. Prerendered ${results.length}/${ROUTES.length} routes.`);
 }

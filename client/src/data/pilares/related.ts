@@ -5,6 +5,7 @@ export const pilaresRelated: Record<string, string[]> = {
     "/blog/primeiros-sinais-de-autismo",
     "/blog/sinais-de-autismo-por-idade",
     "/blog/mitos-sobre-autismo",
+    "/blog/clinica-de-autismo-em-barueri-e-alphaville",
   ],
   "primeiros-sinais-de-autismo": [
     "/blog/o-que-e-autismo",

@@ -27,7 +27,7 @@ export default function Footer() {
             <p className="text-white/70 text-sm leading-relaxed">
               Centro de referência em terapias multidisciplinares, promovendo mais
               qualidade de vida para TEA, TDAH, Síndrome de Down e demais Transtornos de
-              Neurodesenvolvimento.
+              Neurodesenvolvimento. Atendemos famílias de Barueri, Alphaville e região.
             </p>
             <button
               onClick={openWhatsapp}
