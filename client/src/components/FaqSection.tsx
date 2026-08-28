@@ -27,7 +27,7 @@ export const faqs = [
   },
   {
     q: "Onde fica o Instituto Matriz?",
-    a: "Estamos na Alameda Madeira, 222, Conjunto 92, em Barueri, São Paulo. O atendimento é de segunda a sexta das 8h às 19h e aos sábados das 8h às 13h.",
+    a: "Estamos na Alameda Madeira, 222, Conjunto 92, em Barueri, São Paulo. O atendimento é de segunda a sexta das 7h às 21h e aos sábados das 8h às 15h.",
   },
 ];
 

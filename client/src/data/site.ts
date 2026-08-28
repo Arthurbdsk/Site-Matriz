@@ -11,8 +11,8 @@ export const site = {
     city: "Barueri, São Paulo",
   },
   hours: {
-    weekdays: "Segunda a sexta, 8h às 19h",
-    saturday: "Sábado, 8h às 13h",
+    weekdays: "Segunda a sexta, 7h às 21h",
+    saturday: "Sábado, 8h às 15h",
   },
 };
 
