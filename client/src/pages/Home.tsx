@@ -1,5 +1,4 @@
-import { useEffect, useState } from "react";
-import Preloader from "@/components/Preloader";
+import { useEffect } from "react";
 import ScrollProgress from "@/components/ScrollProgress";
 import TopBar from "@/components/TopBar";
 import Header from "@/components/Header";
@@ -30,8 +29,6 @@ import {
 } from "@/data/schema";
 
 export default function Home() {
-  const [ready, setReady] = useState(false);
-
   const handleNavClick = (sectionId: string) => {
     scrollToSection(sectionId);
   };
@@ -41,14 +38,13 @@ export default function Home() {
   // Picks up a section id left by useSectionNav when arriving here from
   // another page (e.g. clicking "Quem Somos" while on /blog).
   useEffect(() => {
-    if (!ready) return;
     const pending = sessionStorage.getItem(PENDING_SCROLL_KEY);
     if (pending) {
       sessionStorage.removeItem(PENDING_SCROLL_KEY);
       const t = window.setTimeout(() => scrollToSection(pending), 60);
       return () => window.clearTimeout(t);
     }
-  }, [ready]);
+  }, []);
 
   return (
     <>
@@ -59,52 +55,41 @@ export default function Home() {
         image="https://www.institutomatriz.com.br/images/logo.png"
         jsonLd={[medicalClinicSchema, organizationSchema, buildFaqSchema(faqs)]}
       />
-      <Preloader onReveal={() => setReady(true)} />
 
-      <div
-        className="min-h-screen flex flex-col bg-white"
-        style={{
-          opacity: ready ? 1 : 0,
-          transition: "opacity 0.6s ease",
-        }}
-      >
-        {ready && (
-          <>
-            <a href="#main-content" className="skip-link">
-              Pular para o conteúdo
-            </a>
-            <ScrollProgress />
-            <TopBar />
-            <Header />
-            <main id="main-content" className="flex-1">
-              <HeroSection />
-              <CredentialsSection />
-              <AboutSection />
-              <DifferentialsSection />
-              <ProcessSection />
-              <NossoEspacoSection />
-              <ServicesSection />
-              <AudienceSection />
-              <AulasSection />
-              <FaqSection />
-              <CtaBand onSchedule={handleCtaClick} />
-              <ContactSection />
-            </main>
-            <Footer />
+      <div className="min-h-screen flex flex-col bg-white">
+        <a href="#main-content" className="skip-link">
+          Pular para o conteúdo
+        </a>
+        <ScrollProgress />
+        <TopBar />
+        <Header />
+        <main id="main-content" className="flex-1">
+          <HeroSection />
+          <CredentialsSection />
+          <AboutSection />
+          <DifferentialsSection />
+          <ProcessSection />
+          <NossoEspacoSection />
+          <ServicesSection />
+          <AudienceSection />
+          <AulasSection />
+          <FaqSection />
+          <CtaBand onSchedule={handleCtaClick} />
+          <ContactSection />
+        </main>
+        <Footer />
 
-            <button
-              onClick={openWhatsapp}
-              aria-label="Falar no WhatsApp"
-              className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[var(--brand-teal)] text-white shadow-lg hover:bg-[var(--brand-teal-strong)] hover:scale-110 transition-transform animate-bob"
-            >
-              <span className="absolute inset-0 rounded-full bg-[var(--brand-teal)] opacity-40 animate-ping" />
-              <MessageCircle size={26} className="relative z-10" />
-            </button>
+        <button
+          onClick={openWhatsapp}
+          aria-label="Falar no WhatsApp"
+          className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[var(--brand-teal)] text-white shadow-lg hover:bg-[var(--brand-teal-strong)] hover:scale-110 transition-transform animate-bob"
+        >
+          <span className="absolute inset-0 rounded-full bg-[var(--brand-teal)] opacity-40 animate-ping" />
+          <MessageCircle size={26} className="relative z-10" />
+        </button>
 
-            <CookieConsent />
-            <AccessibilityWidget />
-          </>
-        )}
+        <CookieConsent />
+        <AccessibilityWidget />
       </div>
     </>
   );
