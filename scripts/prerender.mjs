@@ -14,7 +14,7 @@
 // takes over normally a moment later.
 
 import { createServer } from "node:http";
-import { readFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { existsSync, statSync, readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -159,6 +159,24 @@ async function main() {
 
   await browser.close();
   server.close();
+
+  // Publish only routes that were successfully prerendered. Keep the sitemap
+  // in sync as posts and condition pages are added to the data files.
+  const routes = [...new Set(results.map(({ route }) => route))];
+  const urls = routes.map((route) => {
+    const loc = new URL(route, "https://institutomatriz.com.br").href.replace(
+      /&/g,
+      "&amp;",
+    );
+    return `  <url><loc>${loc}</loc></url>`;
+  });
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.join("\n")}
+</urlset>
+`;
+  await writeFile(path.join(DIST, "sitemap.xml"), sitemap, "utf-8");
+  console.log(`Generated sitemap.xml with ${routes.length} URL(s).`);
 
   console.log(`\nDone. Prerendered ${results.length}/${ROUTES.length} routes.`);
 }
